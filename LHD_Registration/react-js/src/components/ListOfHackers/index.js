@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { List, Avatar, Icon } from "antd"
 const AVATAR_URL =
   "https://cdn0.iconfinder.com/data/icons/bitcoin-cryptocurrency-lavender-vol-2-1/512/cypherpunk-512.png"
@@ -26,22 +26,26 @@ const data = [
 ]
 
 export default () => {
+  const [hackers, setHackers] = useState(data)
+  const deleteMeByIndex = index => {
+    const clone = [...hackers]
+    clone.splice(index, 1)
+    setHackers(clone)
+  }
   return (
     <List
       itemLayout="horizontal"
-      dataSource={data}
-      renderItem={item => (
+      dataSource={hackers}
+      renderItem={({ title = "", description = "" }, index) => (
         <List.Item
           actions={[
-            <span>
-              <Icon type="delete" />
-            </span>
+            <Icon type="delete" onClick={() => deleteMeByIndex(index)} />
           ]}
         >
           <List.Item.Meta
             avatar={<Avatar src={AVATAR_URL} />}
-            title={item.title}
-            description={item.description}
+            title={title}
+            description={description}
           />
         </List.Item>
       )}

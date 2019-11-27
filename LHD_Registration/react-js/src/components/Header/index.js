@@ -1,14 +1,40 @@
-import React from "react"
-import { Layout, Menu } from "antd"
-import Mlh from "../../assets/images/Mlh.svg"
-const { Header } = Layout
-
-export default () => {
+import React, { useState } from "react"
+import { Menu } from "antd"
+import MLH_PIC from "../../assets/images/Mlh.svg"
+import RegistrationScreen from "../Registration"
+import Teams from "../Teams"
+export default ({ pushScreen = console.info }) => {
   return (
-    <Menu theme="light" mode="horizontal" defaultSelectedKeys={["2"]}>
-      <Menu.Item key="2">Register</Menu.Item>
-      <Menu.Item key="3">Teams</Menu.Item>
-      <Menu.Item key="4">Logout</Menu.Item>
-    </Menu>
+    <div className="flex flex-col -m-4 pb-6">
+      <div className="flex items-center justify-center border-b p-4">
+        <img src={MLH_PIC} alt="ml-logo" className="w-48" />
+      </div>
+      <Menu defaultSelectedKeys={["menu-1"]} theme="light" mode="horizontal">
+        <Menu.Item
+          key="menu-1"
+          onClick={() => {
+            pushScreen(<RegistrationScreen />)
+          }}
+        >
+          Register
+        </Menu.Item>
+        <Menu.Item
+          key="menu-2"
+          onClick={() => {
+            pushScreen(<Teams />)
+          }}
+        >
+          Teams
+        </Menu.Item>
+        <Menu.Item
+          key="menu-3"
+          onClick={() => {
+            pushScreen(<RegistrationScreen />)
+          }}
+        >
+          Logout
+        </Menu.Item>
+      </Menu>
+    </div>
   )
 }
