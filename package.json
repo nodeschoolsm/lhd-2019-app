@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "install": "(cd LHD_Registration/cordova && yarn install) && (cd LHD_Registration/react-js && yarn install)",
+    "start": "cd LHD_Registration && reco start"
+  }
+}
