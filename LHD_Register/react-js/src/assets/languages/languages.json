@@ -1,0 +1,32 @@
+{
+    "spanish":{
+       "header":{
+           "register_team": "Registrar Equipo",
+           "teams": "Equipos",
+           "logout": "Cerrar Sesión"
+       },
+       "register_team":{
+           "team_name": "Nombre de equipo",
+           "set_category": "Selecciona categoría para el equipo",
+           "add_hacker": "Agregar hacker",
+           "register_team": "Registrar equipo",
+           "cancel_registration": "Cancelar registro",
+           "scan_prompt": "Escanea el código del hacker"
+       }
+    },
+    "english":{
+        "header":{
+            "register_team": "Register Team",
+            "teams": "Teams",
+            "logout": "Logout"
+        },
+        "register_team":{
+            "team_name": "Team's Name",
+            "set_category": "Set hacker's team category",
+            "add_hacker": "Add hacker",
+            "register_team": "Register Team",
+            "cancel_registration": "Cancel registration",
+            "scan_prompt": "Scan the hacker's code"
+        }
+     }
+}

@@ -1,10 +1,12 @@
-import React, { useState } from "react"
+import React from "react"
 import { Menu } from "antd"
 import MLH_PIC from "../../assets/images/Mlh.svg"
 import RegistrationScreen from "../Registration"
 import Teams from "../Teams"
-export default ({ pushScreen = console.info, QR = console.info, setQRView=console.info }) => {
-  console.log(QR)
+
+
+
+export default ({ pushScreen = console.info, lang="" }) => {
   return (
     <div className="flex flex-col -m-4 pb-6">
       <div className="flex items-center justify-center border-b p-4">
@@ -14,10 +16,10 @@ export default ({ pushScreen = console.info, QR = console.info, setQRView=consol
         <Menu.Item
           key="menu-1"
           onClick={() => {
-            pushScreen(<RegistrationScreen QR={QR} setQRView={setQRView}  />)
+            pushScreen(<RegistrationScreen lang={lang.register_team} />)
           }}
         >
-          Register Team
+          {lang.header.register_team}
         </Menu.Item>
         <Menu.Item
           key="menu-2"
@@ -25,15 +27,15 @@ export default ({ pushScreen = console.info, QR = console.info, setQRView=consol
             pushScreen(<Teams />)
           }}
         >
-          Teams
+          {lang.header.teams}
         </Menu.Item>
         <Menu.Item
           key="menu-3"
           onClick={() => {
-            pushScreen(<RegistrationScreen QR={QR} setQRView={setQRView} />)
+            pushScreen(<RegistrationScreen lang={lang.register_team} />)
           }}
         >
-          Logout
+          {lang.header.logout}
         </Menu.Item>
       </Menu>
     </div>

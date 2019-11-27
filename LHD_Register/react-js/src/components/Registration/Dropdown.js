@@ -5,7 +5,7 @@ const categories = [
     name: "Desarrollo Web"
   }
 ]
-export default ({ category = {}, setCategory = console.info }) => {
+export default ({ category = {}, setCategory = console.info, text="" }) => {
   const [viewDropdown, showDropdown] = useState(false)
 
   return (
@@ -36,7 +36,7 @@ export default ({ category = {}, setCategory = console.info }) => {
         size="large"
         onClick={() => showDropdown(true)}
       >
-        {category.name ? category.name : "Set hacker team category"}
+        {category.name ? category.name : text}
         {viewDropdown ? (
           <Icon type="arrow-down" />
         ) : (
