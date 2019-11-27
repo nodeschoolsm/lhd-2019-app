@@ -1,0 +1,14 @@
+{
+  "name": "react.cordova",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "react.cordova-navigation_controller": "^1.6.4"
+  },
+  "scripts": {
+    "start": "reco start",
+    "build": "reco build"
+  }
+}
