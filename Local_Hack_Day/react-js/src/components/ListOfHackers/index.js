@@ -34,7 +34,7 @@ export const ListOfHackers = ()=>{
         dataSource={data}
         renderItem={item => (
       <List.Item
-      actions={[<a key="list-loadmore-edit"><Icon type="delete" /></a>]}>
+      actions={[<span><Icon type="delete" /></span>]}>
         <List.Item.Meta
           avatar={<Avatar src="https://cdn0.iconfinder.com/data/icons/bitcoin-cryptocurrency-lavender-vol-2-1/512/cypherpunk-512.png" />}
           title={item.title}

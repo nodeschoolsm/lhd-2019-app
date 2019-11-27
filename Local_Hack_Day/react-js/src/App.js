@@ -12,7 +12,7 @@ function App() {
     <div className="App">
     <Layout style={{backgroundColor:'white'}}>
       <Head/>
-      <Content style={{ padding: '0 8px', marginTop: 150, height: '100vh' }}>
+      <Content style={{ padding: '0 8px', marginTop: 85, height: '100vh' }}>
         <RegisterTeam></RegisterTeam>
      </Content>
       </Layout>
