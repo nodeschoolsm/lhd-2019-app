@@ -28,7 +28,6 @@
     },
     "platforms": [
       "android",
-      "ios",
       "browser"
     ]
   }
