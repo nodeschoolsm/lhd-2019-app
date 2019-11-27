@@ -1,7 +1,9 @@
 import React, { useState } from "react"
 import { List, Avatar, Icon } from "antd"
+
 const AVATAR_URL =
   "https://cdn0.iconfinder.com/data/icons/bitcoin-cryptocurrency-lavender-vol-2-1/512/cypherpunk-512.png"
+
 const data = [
   {
     title: "Hacker's Name 1",

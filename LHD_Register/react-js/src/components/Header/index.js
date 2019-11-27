@@ -17,7 +17,7 @@ export default ({ pushScreen = console.info, QR = console.info, setQRView=consol
             pushScreen(<RegistrationScreen QR={QR} setQRView={setQRView}  />)
           }}
         >
-          Register
+          Register Team
         </Menu.Item>
         <Menu.Item
           key="menu-2"

@@ -11,8 +11,8 @@ export default () => {
   return (
     <>
      {!isQRView ?
-      <Layout className="p-4 bg-white flex flex-col items-center">
-      <div className="max-w-2xl">
+      <Layout className="p-4 bg-white flex flex-col justify-center md:items-center">
+      <div className="md:max-w-2xl">
         <Header pushScreen={setScreen} QR={isQRView} setQRView={setQRView} />
         <Content>{currentScreen}</Content>
       </div>
