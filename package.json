@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "install": "(cd LHD_Register/cordova && npm install && cordova platform add android && cordova platform add browser) && (cd LHD_Registration/react-js && npm install)",
+    "install": "(cd LHD_Register/cordova && npm install && cordova platform add android && cordova platform add browser) && (cd LHD_Register/react-js && npm install)",
     "start": "cd LHD_Registration && reco start"
   },
   "dependencies": {
