@@ -1,9 +1,6 @@
 import React from "react"
 import { List, Avatar, Icon } from "antd"
-
-const AVATAR_URL =
-  "https://cdn0.iconfinder.com/data/icons/bitcoin-cryptocurrency-lavender-vol-2-1/512/cypherpunk-512.png"
-
+import Developer_photo from '../../assets/images/Developer_photo.png'
 
 export default ({hackers = [], setHackers=console.info}) => {
   const deleteMeByIndex = index => {
@@ -22,7 +19,7 @@ export default ({hackers = [], setHackers=console.info}) => {
           ]}
         >
           <List.Item.Meta
-            avatar={<Avatar src={AVATAR_URL} />}
+            avatar={<Avatar src={Developer_photo} />}
             title={nombre}
             description={email}
           />

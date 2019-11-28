@@ -12,7 +12,7 @@ export default () => {
     window.navigator.globalization.getPreferredLanguage(
       function (lang) {language=lang.value.split("-")[0]}
   );
-
+// language="en"
   const lang = languages[language]
   const [currentScreen, setScreen] = useState(<Registration lang={lang.register_team} />)
   return (
