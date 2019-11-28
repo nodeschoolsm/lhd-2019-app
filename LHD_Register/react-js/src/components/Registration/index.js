@@ -29,6 +29,7 @@ const db= [
 export default ({lang=""}) => {
   const [category, setCategory] = useState({})
   const [hackers, setHackers] = useState([])
+  const [teamName, setTeamName] = useState()
 
   const scanQR = () =>{
     window.cordova.plugins.barcodeScanner.scan(
@@ -56,15 +57,26 @@ export default ({lang=""}) => {
           showTorchButton : true, 
           prompt : lang.scan_prompt, 
           resultDisplayDuration: 500, 
-          orientation : "vertical"
+          orientation : "vertical",
+          formats : "QR_CODE"
       }
    );
   }
 
+  const cancelRegistration = ()=>{
+    setCategory({})
+    setHackers([])
+    setTeamName()
+  }
+
+  const onTeamNameChange = (input)=>{
+  setTeamName(input.target.value)
+  
+}
   return (
     <div className="flex flex-col">
-      <Input placeholder={lang.team_name} size="large" className="w-full mt-2" />
-      <RegistrationDropdown category={category} setCategory={setCategory} text={lang.set_category} />
+      <Input placeholder={lang.team_name} size="large" className="w-full mt-2" onChange={onTeamNameChange} value={teamName} />
+      <RegistrationDropdown category={category} setCategory={setCategory} text={lang.set_category}  />
       <ListOfHackers hackers={hackers} setHackers={setHackers}/>
       <Button onClick={scanQR} className="flex items-center justify-center">
         <Icon type="plus" /> {lang.add_hacker}
@@ -73,7 +85,7 @@ export default ({lang=""}) => {
       <Button type="primary" size="large" className="mt-2 w-full">
         {lang.register_team}
       </Button>
-      <Button type="dashed" className="mt-2 w-full">
+      <Button type="dashed" className="mt-2 w-full" onClick={cancelRegistration}>
         {lang.cancel_registration}
       </Button>
     </div>

@@ -9,10 +9,10 @@ const { Content } = Layout
 export default () => {
 
   let language;
-    window.navigator.globalization.getPreferredLanguage(
-      function (lang) {language=lang.value.split("-")[0]}
-  );
-// language="en"
+  //   window.navigator.globalization.getPreferredLanguage(
+  //     function (lang) {language=lang.value.split("-")[0]}
+  // );
+language="en"
   const lang = languages[language]
   const [currentScreen, setScreen] = useState(<Registration lang={lang.register_team} />)
   return (
