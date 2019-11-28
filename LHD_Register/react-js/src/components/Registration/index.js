@@ -3,29 +3,6 @@ import ListOfHackers from "../ListOfHackers"
 import RegistrationDropdown from "./Dropdown"
 import { Input, Button, Icon, Divider } from "antd"
 
-const db= [
-  {
-      "id": "50",
-      "nombre": "Chris Fuentes",
-      "email": "chris@gmail.com"
-  },
-  {
-      "id": "60",
-      "nombre": "Jorge Monge",
-      "email": "monge@gmail.com"
-  },
-  {
-      "id": "70",
-      "nombre": "Denny Portillo",
-      "email": "denny@gmail.com"
-  },
-  {
-      "id": "80",
-      "nombre": "Majo",
-      "email": "majo@gmail.com"
-  }
-]
-
 export default ({lang=""}) => {
   const [category, setCategory] = useState({})
   const [hackers, setHackers] = useState([])
@@ -33,20 +10,31 @@ export default ({lang=""}) => {
 
   const scanQR = () =>{
     window.cordova.plugins.barcodeScanner.scan(
-      function (result) {
-         const value = db.filter((data)=>{
-          return data.id==result.text
-         })
+      async function (result) {
 
-         if(value.length>0){
-           alert('Hacker encontrado')
-           const clone = [...hackers]
-           clone.push(value[0])
+        const data = await fetch(`https://lhd-api.chrisft25.now.sh/api/hackers/${result.text}`)
+        .then(async res=>{
+
+          switch(res.status){
+            case 404:
+              return false;
+
+            case 200:
+              return await res.json()
+              
+            default:
+                return false;
+          }
+        }
+        );
+        if(data){
+          const clone = [...hackers]
+           clone.push(data)
            setHackers(clone)
-         }else{
-           alert('Hacker no encontrado')
-         }
-
+           alert('Hacker encontrado')
+        }else{
+          alert('Hacker no encontrado')
+        }
       },
       function (error) {
           alert("Error: " + error);

@@ -12,7 +12,7 @@ export default ({hackers = [], setHackers=console.info}) => {
     <List
       itemLayout="horizontal"
       dataSource={hackers}
-      renderItem={({ nombre = "", email = "" }, index) => (
+      renderItem={({ name = "", email = "" }, index) => (
         <List.Item
           actions={[
             <Icon type="delete" onClick={() => deleteMeByIndex(index)} />
@@ -20,7 +20,7 @@ export default ({hackers = [], setHackers=console.info}) => {
         >
           <List.Item.Meta
             avatar={<Avatar src={Developer_photo} />}
-            title={nombre}
+            title={name}
             description={email}
           />
         </List.Item>
