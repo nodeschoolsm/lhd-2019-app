@@ -6,9 +6,13 @@ import languages from "../assets/languages/languages"
 
 const { Content } = Layout
 
-const language= "spanish"
-
 export default () => {
+
+  let language;
+    window.navigator.globalization.getPreferredLanguage(
+      function (lang) {language=lang.value.split("-")[0]}
+  );
+
   const lang = languages[language]
   const [currentScreen, setScreen] = useState(<Registration lang={lang.register_team} />)
   return (

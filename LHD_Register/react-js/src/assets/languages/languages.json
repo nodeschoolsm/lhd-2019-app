@@ -1,5 +1,5 @@
 {
-    "spanish":{
+    "es":{
        "header":{
            "register_team": "Registrar Equipo",
            "teams": "Equipos",
@@ -14,7 +14,7 @@
            "scan_prompt": "Escanea el código del hacker"
        }
     },
-    "english":{
+    "en":{
         "header":{
             "register_team": "Register Team",
             "teams": "Teams",

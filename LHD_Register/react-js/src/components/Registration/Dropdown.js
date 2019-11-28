@@ -2,7 +2,8 @@ import React, { useState } from "react"
 import { Dropdown, Button, Menu, Icon } from "antd"
 const categories = [
   {
-    name: "Desarrollo Web"
+    name: "Desarrollo Web",
+    value: "1"
   }
 ]
 export default ({ category = {}, setCategory = console.info, text="" }) => {
@@ -16,6 +17,7 @@ export default ({ category = {}, setCategory = console.info, text="" }) => {
           {categories.map(({ name, value }) => {
             return (
               <Menu.Item
+              key={value}
                 onClick={() => {
                   showDropdown(false)
                   setCategory({ name, value })
