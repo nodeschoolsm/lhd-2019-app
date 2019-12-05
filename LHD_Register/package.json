@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "sweetalert": "^2.1.2"
   },
   "scripts": {
     "start": "reco start",

@@ -1,29 +1,36 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Dropdown, Button, Menu, Icon } from "antd"
-const categories = [
-  {
-    name: "Desarrollo Web",
-    value: "1"
-  }
-]
+
+const API = process.env.REACT_APP_API_URL;
+
+
+
+
 export default ({ category = {}, setCategory = console.info, text="" }) => {
   const [viewDropdown, showDropdown] = useState(false)
+  const [categories, setCategories] = useState([])
+  useEffect(()=>{
+    fetch(API + 'teams_categories/')
+    .then(res=>res.json())
+    .then(data=>setCategories(data))
+  },[])
+
 
   return (
     <Dropdown
       placement="bottomCenter"
       overlay={
         <Menu>
-          {categories.map(({ name, value }) => {
+          {categories.map(({ idCategory, description }) => {
             return (
               <Menu.Item
-              key={value}
+              key={idCategory}
                 onClick={() => {
                   showDropdown(false)
-                  setCategory({ name, value })
+                  setCategory({ idCategory, description })
                 }}
               >
-                {name}
+                {description}
               </Menu.Item>
             )
           })}
@@ -38,7 +45,7 @@ export default ({ category = {}, setCategory = console.info, text="" }) => {
         size="large"
         onClick={() => showDropdown(true)}
       >
-        {category.name ? category.name : text}
+        {category.description ? category.description : text}
         {viewDropdown ? (
           <Icon type="arrow-down" />
         ) : (
