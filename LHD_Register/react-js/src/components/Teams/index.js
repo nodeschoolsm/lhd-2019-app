@@ -1,5 +1,5 @@
 import React, { useEffect,useState } from "react"
-import { List, Avatar, Modal, Button } from "antd"
+import { List, Avatar, Modal } from "antd"
 import Developer_photo from '../../assets/images/Developer_photo.png'
 
 const API = process.env.REACT_APP_API_URL;
@@ -10,40 +10,32 @@ export default () => {
     visible: false,
   })
   const [teams,setTeams] = useState([])
-  let membersData={}
-  let members=[]
+  
+  const [membersData,setMembersData] = useState({})
 
-  const showModal = async (id) => {
-// let result = await fetch(API+'teams/'+id)
-// result = await result.json()
-// membersData=result
-// members=membersData.members
-// console.log(members)
-    fetch(API+'teams/'+id)
-    .then(res=>res.json())
-    .then(data=>{
-      membersData=data;
-      console.log(membersData.members)
-        setState({
-          visible: true,
-        });
-    })
+  const getMembers = async (id)=>{
+    let data = await (await fetch(API+'teams/'+id)).json()
+    await setMembersData(data)
+    showModal();
+  }
 
-
+  const showModal = () => {
+    setState({
+      visible: true,
+    });
   };
 
-  const handleOk = e => {
-    console.log(e);
+  const handleOk = () => {
     setState({
       visible: false,
     });
   };
 
-  const handleCancel = e => {
-    console.log(e);
+  const handleCancel = () => {
     setState({
       visible: false,
     });
+
   };
 
   useEffect(()=>{
@@ -60,7 +52,7 @@ export default () => {
           onOk={()=>handleOk()}
           onCancel={()=>handleCancel()}
         >
-          <p>{membersData.category}</p>
+          <p>{membersData.categoy}</p>
           <p>{membersData.nameTeam}</p>
           <List
       itemLayout="horizontal"
@@ -80,7 +72,7 @@ export default () => {
       itemLayout="horizontal"
       dataSource={teams}
       renderItem={({ id = "", category = "", nameTeam="",members="" }) => (
-        <List.Item key={id} onClick={()=>showModal(id)}>
+        <List.Item key={id} onClick={()=>getMembers(id)}>
           <List.Item.Meta
             avatar={<Avatar src={Developer_photo} />}
             title={`${nameTeam} (${members})`}
