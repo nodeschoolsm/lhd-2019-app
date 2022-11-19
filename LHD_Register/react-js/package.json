@@ -13,7 +13,7 @@
     "react": "^16.12.0",
     "react-app-rewired": "^2.1.5",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.2.0",
+    "react-scripts": "5.0.1",
     "react.cordova-navigation_controller": "^1.6.4",
     "sweetalert": "^2.1.2",
     "tailwindcss": "^1.1.4"
